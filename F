@@ -1,0 +1,91 @@
+Here's a basic structure for your personal webpage that outlines the features you want. This example uses HTML, CSS, and JavaScript, with comments indicating where you'd implement the functionality for messaging, photo/video saving, and calling features.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam and Alexia’s Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        #chat-container {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        #messages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        #message-input {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <h1>Chat with Sam and Alexia</h1>
+    <div id="messages"></div>
+    <input type="text" id="message-input" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+    <button onclick="openCamera()">Open Camera</button>
+    <button onclick="startVideoCall()">Video Call</button>
+</div>
+
+<script>
+    // Basic message sending function
+    function sendMessage() {
+        const input = document.getElementById('message-input');
+        const message = input.value;
+        if (message) {
+            const messagesDiv = document.getElementById('messages');
+            const newMessage = document.createElement('div');
+            newMessage.textContent = message;
+            messagesDiv.appendChild(newMessage);
+            input.value = ''; // Clear input after sending
+            // Add functionality to delete messages after viewing
+            setTimeout(() => {
+                messagesDiv.removeChild(newMessage);
+            }, 5000); // Message disappears after 5 seconds
+        }
+    }
+
+    // Placeholder for camera access function
+    function openCamera() {
+        // Use navigator.mediaDevices.getUserMedia for camera access
+        alert('Camera access functionality would go here.');
+    }
+
+    // Placeholder for starting a video call
+    function startVideoCall() {
+        alert('Video call functionality would go here.');
+    }
+</script>
+
+</body>
+</html>
+```
+
+### Instructions:
+1. **Save the code** in a file with a `.html` extension, such as `chat.html`.
+2. **Open the file** in a web browser to see the layout.
+3. **Implement real functionality**:
+   - For messaging, consider using a back-end service (like Firebase or a WebSocket server).
+   - Use the WebRTC API for audio/video calling.
+   - For camera access, implement `navigator.mediaDevices.getUserMedia()`.
+
+This is a basic foundation, and you can expand upon it based on your needs. If you need further guidance on specific features, let me know!
